@@ -16,13 +16,14 @@ function addText() {
 
     var editBtn = document.createElement("button")
     editBtn.innerHTML = "Edit"
+    editBtn.setAttribute("onclick", "editOnlyOne(this)")
     li.append(editBtn)
     var delBtn = document.createElement("button")
     delBtn.innerHTML = "Delete"
     delBtn.setAttribute("onclick", "delOnlyOne(this)")
     li.append(delBtn)
 
-    
+
 
 }
 
@@ -37,4 +38,10 @@ function delAllText() {
 function delOnlyOne(elem) {
     console.log("elem", elem.parentNode)
     elem.parentNode.remove()
+}
+
+function editOnlyOne(elem) {
+    // console.log(elem.parentNode.firstChild)
+    var editValue = prompt("Enter your todo")
+    elem.parentNode.firstChild.nodeValue = editValue
 }
